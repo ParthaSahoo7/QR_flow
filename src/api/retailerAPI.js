@@ -7,7 +7,7 @@ export const sendRegisterOTP = async (mobile, countryCode,qrid) => {
     const response = await axios.post(`${BASE_URL}/send-register-otp`, {
       qr_id:qrid,
       phone_number: mobile,
-      country_code: countryCode,
+      phone_country_code: countryCode,
     });
     return response.data;
   } catch (error) {
