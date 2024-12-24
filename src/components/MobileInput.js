@@ -30,16 +30,27 @@ const MobileInput = ({ onOTPRequest }) => {
       toast.error("Please enter a valid phone number.");
       return;
     }
+    // const match = phone.trim().match(/^\+?(\d+)\s+(.+)$/);
+    // console.log(match,phone);
+    // if (!match ) {
+    //   toast.error('Invalid phone number format');
+    //   return;
+    // }
 
     // // Extract the country code
     // const countryCode = `+${phone.split(' ')[0]}`;
     // const mobileNumber = phone.replace(countryCode, '').trim();
 
-    const match = phone.trim().match(/^(\d+)\s+(.+)$/);
+    const countryCode = phone.slice(0, -10);
+    const mobileNumber = phone.slice(-10);
+
+    console.log(countryCode, mobileNumber);
 
     
-      const countryCode = match[1]; // First capture group: Country code
-      const mobileNumber = match[2].replace(/[\s()]/g, ""); // Remove spaces, '(' and ')' from the mobile number
+
+    
+      // const countryCode = match[1]; // First capture group: Country code
+      // const mobileNumber = match[2].replace(/[\s()]/g, ""); // Remove spaces, '(' and ')' from the mobile number
 
       
     
