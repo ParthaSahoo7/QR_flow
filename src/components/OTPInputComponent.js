@@ -47,6 +47,7 @@ const OTPInputComponent = ({ mobile, countryCode, qrId }) => {
     }
     setLoading(true);
     try {
+      console.log(mobile, otp, countryCode, qrId);
       const response = await verifyRegisterOTP(mobile, otp, countryCode, qrId);
       // const response = { status: 200 }; 
       toast.success("OTP verified successfully!");

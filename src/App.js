@@ -15,17 +15,17 @@ const App = () => {
   const navigate = useNavigate();
 
   // Extract qr_id from the URL
-  // const location = useLocation();
-  // useEffect(() => {
-  //   // const params = new URLSearchParams(location.search);
-  //   const params = new URLSearchParams(location.search);
-  //   const qr_id = params.get('qr_id');
-  //   if (qr_id) {
-  //     setQrId(qr_id);
-  //   } else {
-  //     toast.error('QR ID is missing in the URL.');
-  //   }
-  // }, [location]);
+  const location = useLocation();
+  useEffect(() => {
+    // const params = new URLSearchParams(location.search);
+    const params = new URLSearchParams(location.search);
+    const qr_id = params.get('qr_id');
+    if (qr_id) {
+      setQrId(qr_id);
+    } else {
+      toast.error('QR ID is missing in the URL.');
+    }
+  }, [location]);
     
   
 

@@ -71,7 +71,7 @@ const MobileInput = ({ onOTPRequest }) => {
     setLoading(true);
 
     try {
-      await sendRegisterOTP(mobileNumber, countryCode, qrId);
+      // await sendRegisterOTP(mobileNumber, countryCode, qrId);
       toast.success("OTP sent successfully!");
       onOTPRequest(mobileNumber, countryCode, qrId); // Proceed to OTP input page
     } catch (error) {
