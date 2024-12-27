@@ -7,24 +7,25 @@ import { sendRegisterOTP } from "../api/retailerAPI";
 import { toast } from "react-hot-toast";
 import { CgSpinner } from "react-icons/cg";
 
-const MobileInput = ({ onOTPRequest }) => {
+const MobileInput = ({ onOTPRequest,qrId }) => {
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
-  const [qrId, setQrId] = useState("");
+  // const [qrId, setQrId] = useState("");
   
 
   // Extract qr_id from the URL
-  const location = useLocation();
-  useEffect(() => {
-    // const params = new URLSearchParams(location.search);
-    const params = new URLSearchParams(location.search);
-    const qr_id = params.get('qr_id');
-    if (qr_id) {
-      setQrId(qr_id);
-    } else {
-      toast.error('QR ID is missing in the URL.');
-    }
-  }, [location]);
+  // const location = useLocation();
+  // useEffect(() => {
+  //   // const params = new URLSearchParams(location.search);
+  //   const params = new URLSearchParams(location.search);
+  //   const qr_id = params.get('qr_id');
+  //   if (qr_id) {
+  //     setQrId(qr_id);
+  //   } else {
+  //     console.log('QR ID is missing in the URL.');
+  //     // toast.error('QR ID is missing in the URL.');
+  //   }
+  // }, [location]);
 
   const handleSendOTP = async () => {
     if (!phone || phone.length < 10) {
@@ -71,7 +72,7 @@ const MobileInput = ({ onOTPRequest }) => {
     setLoading(true);
 
     try {
-      // await sendRegisterOTP(mobileNumber, countryCode, qrId);
+      await sendRegisterOTP(mobileNumber, countryCode, qrId);
       toast.success("OTP sent successfully!");
       onOTPRequest(mobileNumber, countryCode, qrId); // Proceed to OTP input page
     } catch (error) {
