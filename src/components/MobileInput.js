@@ -92,6 +92,7 @@ const MobileInput = ({ onOTPRequest,qrId }) => {
     }}>
   </div>
       
+        
       <div className=" relative z-10 w-80 flex flex-col gap-3 rounded-lg p-1 bg-[#4169E1] p-8">
         <h2 className="text-center leading-normal text-white  font-serif text-4xl ">
           WELCOME TO LOYALTTY
@@ -124,6 +125,7 @@ const MobileInput = ({ onOTPRequest,qrId }) => {
           </button>
         </>
       </div>
+      
     </section>
   );
 };
