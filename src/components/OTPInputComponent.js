@@ -50,6 +50,8 @@ const OTPInputComponent = ({ mobile, countryCode, qrId }) => {
       console.log(mobile, otp, countryCode, qrId);
       const response = await verifyRegisterOTP(mobile, otp, countryCode, qrId);
       // const response = { status: 200 }; 
+      console.log(response.status);
+      console.log(response.statusCode);
       toast.success("OTP verified successfully!");
       if (response.status === 200) {
         navigate('/success'); // Replace with the actual path you want to redirect to
