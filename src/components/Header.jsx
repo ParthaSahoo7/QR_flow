@@ -80,7 +80,7 @@ return (
       
     }}></div>
       <div className="relative z-10 flex flex-col gap-6">
-      <div className=" text-[rgb(67,136,45)] w-fit mx-auto  rounded-full"><TiTick size={100} />  </div>
+      <div className=" text-[#05B709] w-fit mx-auto  rounded-full animate-bounce"><TiTick size={100} />  </div>
   <h1 className="text-center text-[#4169E1] font-medium text-5xl ">
               Done!
             </h1>
