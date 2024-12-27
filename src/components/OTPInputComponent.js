@@ -65,16 +65,20 @@ const OTPInputComponent = ({ mobile, countryCode, qrId }) => {
   };
 
   return (
-    <section className="bg-emerald-500 flex items-center justify-center h-screen">
-    <div className="w-80 flex flex-col gap-3 rounded-lg p-1">
+    <section className="relative bg-[#E0E7FF] flex items-center justify-center h-screen">
+      <div 
+    className="absolute inset-0 bg-cover bg-center opacity-30" 
+    style={{
+      backgroundImage: `url('https://clipground.com/images/pattern-png-transparent-4.png')`,
+      
+    }}></div>
+    <div className=" relative z-10 w-80 flex flex-col gap-3 rounded-lg p-1 bg-[#4169E1] p-8">
     <h2 className="text-center leading-normal text-white  font-serif text-4xl ">
           WELCOME TO LOYALTTY
         </h2>
-      {/* <h4 className="text-center leading-normal text-white font-serif text-2xl  mb-6">
-        to LOYALTTY
-      </h4> */}
+      
       <>
-        <div className="bg-white text-emerald-500 w-fit mx-auto p-4 rounded-full">
+        <div className="bg-white text-[#F4D03F] w-fit mx-auto p-4 rounded-full">
           <BsFillShieldLockFill size={30} />
         </div>
         <h2 className="font-bold text-xl text-white text-center">Enter OTP</h2>
@@ -90,13 +94,13 @@ const OTPInputComponent = ({ mobile, countryCode, qrId }) => {
           // secure
           // inputClassName="flex-grow  h-12 border border-gray-300 rounded-md text-center text-xl focus:outline-none focus:ring-2 focus:ring-blue-500 "
           className="opt-container "
-          inputClassName="focus:outline-none focus:ring-2 focus:ring-green-500 rounded-md border border-gray-300 text-center"
+          inputClassName="focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded-md border border-gray-300 text-center"
         />
 
         <button
           onClick={handleVerifyOTP}
           // className="w-full bg-blue-500 text-white py-2 rounded mt-4 flex items-center justify-center"
-          className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-white rounded"
+          className="bg-[#F4D03F] w-full flex gap-1 items-center justify-center py-2.5 text-black rounded"
           disabled={loading}
         >
           {loading ? <CgSpinner className="animate-spin mr-2" /> : null}

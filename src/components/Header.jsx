@@ -1,6 +1,7 @@
 import React from "react";
 import { FaApple, FaGooglePlay, FaGlobe } from "react-icons/fa";
 import { AiFillApple, AiFillAndroid, AiOutlineGlobal } from 'react-icons/ai';
+import { TiTick } from "react-icons/ti";
 
 
 
@@ -71,17 +72,23 @@ const Header = () => {
 
 
 return (
-  <section className="bg-emerald-500 flex items-center justify-center h-screen">
-      <div>
-  <h2 className="text-center text-white font-medium text-2xl">
-              👍OnBoarding Success
-            </h2>
-            <h2 className="text-center text-white font-medium text-2xl">
+  <section className="relative bg-[#E0E7FF] flex items-center justify-center h-screen">
+    <div 
+    className="absolute inset-0 bg-cover bg-center opacity-30" 
+    style={{
+      backgroundImage: `url('https://clipground.com/images/pattern-png-transparent-4.png')`,
+      
+    }}></div>
+      <div className="relative z-10 flex flex-col gap-6">
+      <div className=" text-[rgb(67,136,45)] w-fit mx-auto  rounded-full"><TiTick size={100} />  </div>
+  <h1 className="text-center text-[#4169E1] font-medium text-5xl ">
+              Done!
+            </h1>
+            <h2 className="text-center text-[#4169E1] font-medium text-2xl ">
               "Choose your platform (iOS, Android, or Website) and Create your
               Bussiness to get started"
             </h2>
-            <br></br>
-  <header className="flex justify-center items-center p-4 space-x-4">
+  <header className="flex justify-center items-center  space-x-4">
     {/* iOS App Store Button */}
     <button
       className="flex items-center sm:flex-col space-x-2 sm:space-x-0 sm:space-y-2 px-4 py-2 text-white bg-blue-500 hover:bg-blue-600 rounded-md"
