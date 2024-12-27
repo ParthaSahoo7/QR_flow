@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BsFillShieldLockFill, BsTelephoneFill } from "react-icons/bs";
+import {  BsTelephoneFill } from "react-icons/bs";
 import { useLocation } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
@@ -11,19 +11,20 @@ const MobileInput = ({ onOTPRequest }) => {
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
   const [qrId, setQrId] = useState("");
+  
 
-  // // Extract qr_id from the URL
-  // const location = useLocation();
-  // useEffect(() => {
-  //   // const params = new URLSearchParams(location.search);
-  //   const params = new URLSearchParams(location.search);
-  //   const qr_id = params.get('qr_id');
-  //   if (qr_id) {
-  //     setQrId(qr_id);
-  //   } else {
-  //     toast.error('QR ID is missing in the URL.');
-  //   }
-  // }, [location]);
+  // Extract qr_id from the URL
+  const location = useLocation();
+  useEffect(() => {
+    // const params = new URLSearchParams(location.search);
+    const params = new URLSearchParams(location.search);
+    const qr_id = params.get('qr_id');
+    if (qr_id) {
+      setQrId(qr_id);
+    } else {
+      toast.error('QR ID is missing in the URL.');
+    }
+  }, [location]);
 
   const handleSendOTP = async () => {
     if (!phone || phone.length < 10) {
@@ -45,6 +46,8 @@ const MobileInput = ({ onOTPRequest }) => {
     const mobileNumber = phone.slice(-10);
 
     console.log(countryCode, mobileNumber);
+    console.log(qrId);
+    
 
     
 
@@ -81,12 +84,12 @@ const MobileInput = ({ onOTPRequest }) => {
   return (
     <section className="bg-emerald-500 flex items-center justify-center h-screen">
       <div className="w-80 flex flex-col gap-3 rounded-lg p-1">
-        <h1 className="text-center leading-normal text-white  font-serif text-5xl ">
-          Welcome
-        </h1>
-        <h4 className="text-center leading-normal text-white font-serif text-2xl  mb-6">
+        <h2 className="text-center leading-normal text-white  font-serif text-4xl ">
+          WELCOME TO LOYALTTY
+        </h2>
+        {/* <h4 className="text-center leading-normal text-white font-serif text-2xl  mb-6">
           to LOYALTTY
-        </h4>
+        </h4> */}
         <>
           <div className="bg-white text-emerald-500 w-fit mx-auto p-4 rounded-full">
             <BsTelephoneFill size={30} />

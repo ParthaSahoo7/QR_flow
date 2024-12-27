@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:8000/retailer';
+const BASE_URL = 'http://localhost:8000';
 
 export const sendRegisterOTP = async (mobile, countryCode,qrid) => {
   try {

@@ -3,6 +3,8 @@ import MobileInput from './components/MobileInput';
 import OTPInputComponent from './components/OTPInputComponent';
 import {toast, Toaster } from 'react-hot-toast';
 import { useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import Header from './components/Header';
 // import OTPInputComponent from './components/OTPInputComponent';
 
 const App = () => {
@@ -10,8 +12,9 @@ const App = () => {
   const [countryCode, setCountryCode] = useState('');
   const [isOTPSent, setIsOTPSent] = useState(false);
   const [qrId, setQrId] = useState('');
+  const navigate = useNavigate();
 
-  // // Extract qr_id from the URL
+  // Extract qr_id from the URL
   // const location = useLocation();
   // useEffect(() => {
   //   // const params = new URLSearchParams(location.search);
@@ -32,14 +35,23 @@ const App = () => {
     setIsOTPSent(true);
   };
 
+  const handleOTPVerificationSuccess = () => {
+    navigate('/success'); // Replace with the actual path you want to redirect to
+  };
+
   return (
     <div>
       <Toaster />
-      {!isOTPSent ? (
+      <Routes>
+        <Route path="/" 
+        element={!isOTPSent ? (
         <MobileInput onOTPRequest={handleOTPRequest} />
       ) : (
         <OTPInputComponent mobile={mobile} countryCode={countryCode} qrId={qrId}/>
       )}
+      />
+      <Route path="/success" element={<Header />} />
+      </Routes>
     </div>
   );
 };

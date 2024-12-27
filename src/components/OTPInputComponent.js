@@ -4,11 +4,13 @@ import { toast } from "react-hot-toast";
 import { CgSpinner } from "react-icons/cg";
 import OTPInput from "otp-input-react";
 import { BsFillShieldLockFill, BsTelephoneFill } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
 
 const OTPInputComponent = ({ mobile, countryCode, qrId }) => {
   const [otp, setOTP] = useState("");
   const [loading, setLoading] = useState(false);
   const [resendTimer, setResendTimer] = useState(30); // Timer for the resend button
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (resendTimer > 0) {
@@ -45,8 +47,14 @@ const OTPInputComponent = ({ mobile, countryCode, qrId }) => {
     }
     setLoading(true);
     try {
-      await verifyRegisterOTP(mobile, otp, countryCode, qrId);
+      const response = await verifyRegisterOTP(mobile, otp, countryCode, qrId);
+      // const response = { status: 200 }; 
       toast.success("OTP verified successfully!");
+      if (response.status === 200) {
+        navigate('/success'); // Replace with the actual path you want to redirect to
+      }  else {
+        toast.error('Unexpected status code received.');
+      }
     } catch (error) {
       toast.error(error.message || "Failed to verify OTP.");
     } finally {
@@ -57,12 +65,12 @@ const OTPInputComponent = ({ mobile, countryCode, qrId }) => {
   return (
     <section className="bg-emerald-500 flex items-center justify-center h-screen">
     <div className="w-80 flex flex-col gap-3 rounded-lg p-1">
-      <h1 className="text-center leading-normal text-white  font-serif text-5xl ">
-        Welcome
-      </h1>
-      <h4 className="text-center leading-normal text-white font-serif text-2xl  mb-6">
+    <h2 className="text-center leading-normal text-white  font-serif text-4xl ">
+          WELCOME TO LOYALTTY
+        </h2>
+      {/* <h4 className="text-center leading-normal text-white font-serif text-2xl  mb-6">
         to LOYALTTY
-      </h4>
+      </h4> */}
       <>
         <div className="bg-white text-emerald-500 w-fit mx-auto p-4 rounded-full">
           <BsFillShieldLockFill size={30} />
