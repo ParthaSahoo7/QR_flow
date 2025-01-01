@@ -132,6 +132,7 @@ const MobileInput = ({ onOTPRequest,qrId }) => {
               textUnderlinePosition: "from-font",
               textDecorationSkipInk: "none",
               color: "#040869",
+              whiteSpace: "nowrap" // Prevent text from wrapping
             }}
           >
             Welcome to Loyaltty
