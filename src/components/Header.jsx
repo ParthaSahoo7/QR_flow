@@ -1,7 +1,9 @@
-import React from "react";
+
 import { FaApple, FaGooglePlay, FaGlobe } from "react-icons/fa";
 import { AiFillApple, AiFillAndroid, AiOutlineGlobal } from 'react-icons/ai';
 import { TiTick } from "react-icons/ti";
+import React from "react";
+
 
 
 
@@ -108,13 +110,13 @@ return (
     </button>
 
     {/* Website Button */}
-    <button
+    {/* <button
       className="flex items-center sm:flex-col space-x-2 sm:space-x-0 sm:space-y-2 px-4 py-2 text-white bg-gray-500 hover:bg-gray-600 rounded-md"
       onClick={() => window.open("https://yourwebsite.com", "_blank")}
     >
       <AiOutlineGlobal className="text-2xl sm:text-3xl shadow-lg" />
       <span className="hidden sm:block">Website</span>
-    </button>
+    </button> */}
   </header>
   </div>
   </section>

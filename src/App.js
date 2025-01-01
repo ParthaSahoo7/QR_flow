@@ -5,6 +5,9 @@ import {toast, Toaster } from 'react-hot-toast';
 import { useLocation } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
+import Example from './components/Example';
+import Example2 from './components/Example2';
+
 // import OTPInputComponent from './components/OTPInputComponent';
 
 const App = () => {
@@ -47,6 +50,7 @@ const App = () => {
   return (
     <div>
       <Toaster />
+      
       <Routes>
         <Route path="/" 
         element={!isOTPSent ? (
@@ -56,6 +60,8 @@ const App = () => {
       )}
       />
       <Route path="/success" element={<Header />} />
+      <Route path="/success2" element={<Example2 />} />
+      <Route path="/ex" element={<Example onOTPRequest={handleOTPRequest}  qrId={qrId} />} />
       </Routes>
     </div>
   );

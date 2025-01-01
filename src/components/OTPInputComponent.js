@@ -106,7 +106,7 @@ const OTPInputComponent = ({ mobile, countryCode, qrId }) => {
           {loading ? <CgSpinner className="animate-spin mr-2" /> : null}
           {loading ? "Verifying..." : "Verify OTP"}
         </button>
-        <div className="text-center mt-4">
+        <div className="text-center mt-4 ">
                   {resendTimer > 0 ? (
                     <p className="text-white">
                       Resend OTP in <span className="font-bold">{resendTimer}s</span>
